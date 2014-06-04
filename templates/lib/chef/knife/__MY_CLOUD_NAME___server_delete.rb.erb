@@ -1,0 +1,25 @@
+#
+# Author:: 
+# Copyright:: 
+#
+
+require 'chef/knife/cloud/server/delete_options'
+require 'chef/knife/cloud/server/delete_command'
+require 'chef/knife/cloud/<%= __MY_CLOUD_NAME__.downcase %>_service'
+require 'chef/knife/cloud/<%= __MY_CLOUD_NAME__.downcase %>_service_options'
+require 'chef/knife/<%= __MY_CLOUD_NAME__.downcase %>_helpers'
+
+class Chef
+  class Knife
+    class Cloud
+      class <%= __MY_CLOUD_NAME__.capitalize %>ServerDelete < ServerDeleteCommand
+        include ServerDeleteOptions
+        include <%= __MY_CLOUD_NAME__.capitalize %>ServiceOptions
+        include <%= __MY_CLOUD_NAME__.capitalize %>Helpers
+
+        banner "knife <%= __MY_CLOUD_NAME__.downcase %> server delete INSTANCEID [INSTANCEID] (options)"
+
+      end
+    end
+  end
+end

@@ -1,0 +1,14 @@
+$:.unshift File.expand_path('../../lib', __FILE__)
+require 'chef/knife/bootstrap'
+require 'chef/knife/<%= __MY_CLOUD_NAME__.downcase %>_helpers'
+require 'fog'
+require 'chef/knife/winrm_base'
+require 'chef/knife/bootstrap_windows_winrm'
+require 'chef/knife/<%= __MY_CLOUD_NAME__.downcase %>_server_create'
+require 'chef/knife/<%= __MY_CLOUD_NAME__.downcase %>_server_delete'
+require 'chef/knife/bootstrap_windows_ssh'
+require "securerandom"
+require 'knife-<%= __MY_CLOUD_NAME__.downcase %>/version'
+require 'test/knife-utils/test_bed'
+require 'resource_spec_helper'
+

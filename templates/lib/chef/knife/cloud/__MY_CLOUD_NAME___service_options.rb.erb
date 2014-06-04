@@ -1,0 +1,29 @@
+#
+# Author:: 
+# Copyright:: 
+#
+
+require 'chef/knife/cloud/fog/options'
+class Chef
+  class Knife
+    class Cloud
+      module <%= __MY_CLOUD_NAME__.capitalize %>ServiceOptions
+
+       def self.included(includer)
+          includer.class_eval do
+            include FogOptions
+
+            # TODO - define your cloud specific auth options.
+            # Example:
+            # <%= __MY_CLOUD_NAME__.capitalize %> Connection params.
+            #option :<%= __MY_CLOUD_NAME__.downcase %>_username,
+            #  :short => "-A USERNAME",
+            #  :long => "--<%= __MY_CLOUD_NAME__.downcase %>-username KEY",
+            #  :description => "Your <%= __MY_CLOUD_NAME__.capitalize %> Username",
+            #  :proc => Proc.new { |key| Chef::Config[:knife][:<%= __MY_CLOUD_NAME__.downcase %>_username] = key }
+          end
+        end
+      end
+    end
+  end
+end

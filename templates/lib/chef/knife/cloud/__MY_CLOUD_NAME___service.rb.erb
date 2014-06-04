@@ -1,0 +1,32 @@
+#
+# Author:: 
+# Copyright:: 
+#
+
+require 'chef/knife/cloud/fog/service'
+
+class Chef
+  class Knife
+    class Cloud
+      class <%= __MY_CLOUD_NAME__.capitalize %>Service < FogService
+
+        def initialize(options = {})
+          # TODO - Add cloud specific auth params to be passed to fog connection. See knife-openstack for real life example.
+          super(options.merge({
+                              :auth_params => {
+                                :provider => '<%= __MY_CLOUD_NAME__ %>',
+                                :<%= __MY_CLOUD_NAME__.downcase %>_username => Chef::Config[:knife][:<%= __MY_CLOUD_NAME__.downcase %>_username],
+                                :<%= __MY_CLOUD_NAME__.downcase %>_api_key => Chef::Config[:knife][:<%= __MY_CLOUD_NAME__.downcase %>_password],
+                                :<%= __MY_CLOUD_NAME__.downcase %>_auth_url => Chef::Config[:knife][:<%= __MY_CLOUD_NAME__.downcase %>_auth_url],
+                                :<%= __MY_CLOUD_NAME__.downcase %>_endpoint_type => Chef::Config[:knife][:<%= __MY_CLOUD_NAME__.downcase %>_endpoint_type],
+                                :<%= __MY_CLOUD_NAME__.downcase %>_tenant => Chef::Config[:knife][:<%= __MY_CLOUD_NAME__.downcase %>_tenant],
+                                :connection_options => {
+                                  :ssl_verify_peer => !Chef::Config[:knife][:<%= __MY_CLOUD_NAME__.downcase %>_insecure]
+                                }
+                }}))
+        end
+
+      end
+    end
+  end
+end

@@ -1,0 +1,26 @@
+#
+# Author:: 
+# Copyright:: 
+#
+
+require 'chef/knife/cloud/<%= __MY_CLOUD_NAME__.downcase %>_service_options'
+
+class Chef
+  class Knife
+    class Cloud
+      module <%= __MY_CLOUD_NAME__.capitalize %>Helpers
+
+        # TODO - Define helper methods used across your commands 
+
+        def create_service_instance
+          <%= __MY_CLOUD_NAME__.capitalize %>Service.new
+        end
+
+        def validate!
+          # TODO - update these as per your cloud. Validating auth params defined in service options
+          super(:<%= __MY_CLOUD_NAME__.downcase %>_username, :<%= __MY_CLOUD_NAME__.downcase %>_password, :<%= __MY_CLOUD_NAME__.downcase %>_auth_url)
+        end
+      end
+    end
+  end
+end
