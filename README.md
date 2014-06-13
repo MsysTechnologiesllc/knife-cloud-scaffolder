@@ -1,19 +1,19 @@
 knife-cloud-scaffolder
 ======================
 
-Code generator for writing knife-cloud based plugins.
+Code generator for writing knife-cloud based plugins. Git clone this repo and run the command as below. The current version of the knife-cloud scaffolder assumes the plugin uses Fog. So if you are not using Fog, you will have to make changes accordingly. We plan to add more features to this scaffolder soon!
 
 Command
 =======
-    knifecloudgen.rb <destination folder> <properties file>
+    ruby knifecloudgen.rb <destination folder> <properties file>
 
 Example
 =======
 
-    knifecloudgen.rb ./knife-azure ./properties.json
+    ruby knifecloudgen.rb ./knife-azure ./properties.json
 
   Then just setup git repo in destination folder.
-  
+
 = LICENSE:
 ---------
 Author:: Mukta Aphale (<mukta.aphale@clogeny.com>)
