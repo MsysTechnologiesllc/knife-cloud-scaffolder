@@ -72,8 +72,9 @@ class Codegenerator
 
       destination_file_name = File.join(@destination_dir, erb_file.sub(/templates?/, '').sub(/.erb$/, '')).sub(/__MY_CLOUD_NAME__/, cloudname)
       mylog "Writing to a file (#{destination_file_name})..."
-      File.open(destination_file_name, "w") do |f|
+      File.open(destination_file_name, "w:utf-8") do |f|
         f.write(content)
+        f.chmod(0644)
       end
     end
   end
