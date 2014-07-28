@@ -10,7 +10,7 @@ Command
 Example
 =======
 
-    ruby knifecloudgen.rb ./knife-azure ./properties.json
+    ruby knifecloudgen.rb ./knife-myplugin ./properties.json
 
   Then just setup git repo in destination folder.
 

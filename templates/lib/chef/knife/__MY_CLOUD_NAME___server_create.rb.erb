@@ -1,6 +1,6 @@
 #
-# Author:: 
-# Copyright:: 
+# Author::
+# Copyright::
 #
 
 require 'chef/knife/cloud/server/create_command'
@@ -87,7 +87,7 @@ class Chef
         def validate_params!
           super
           errors = []
-          
+
           # TODO - Add your validation here for any create server parameters and populate errors [] with error message strings.
 
           # errors << "your error message" if some_param_undefined
@@ -95,6 +95,17 @@ class Chef
           error_message = ""
           raise CloudExceptions::ValidationError, error_message if errors.each{|e| ui.error(e); error_message = "#{error_message} #{e}."}.any?
         end
+
+        def post_connection_validations
+          errors = []
+
+          # TODO - Add validations that need to be done after connection to the cloud provider
+          # Eg -
+          # errors << "You have not provided a valid image ID. " if !is_image_valid?
+          error_message = ""
+          raise CloudExceptions::ValidationError, error_message if errors.each{|e| ui.error(e); error_message = "#{error_message} #{e}."}.any?
+        end
+
       end
     end
   end
